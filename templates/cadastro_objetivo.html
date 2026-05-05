@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>App - Metas</title>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Metas<span>.</span></h1>
+            <div class="progress-container">
+                <div class="progress-bar" style="width: 66%;"></div>
+            </div>
+            
+            <form method="POST">
+                <label>Peso atual (kg)</label>
+                <input type="number" name="peso" step="0.1" placeholder="70.5" required>
+                
+                <label>Altura (m)</label>
+                <input type="number" name="altura" step="0.01" placeholder="1.75" required>
+                
+                <label>Qual seu foco?</label>
+                <select name="objetivo" class="custom-select">
+                    <option value="Hipertrofia">Hipertrofia</option>
+                    <option value="Emagrecimento">Emagrecimento</option>
+                    <option value="Condicionamento">Condicionamento</option>
+                    <option value="Força">Força Brutal</option>
+                </select>
+                
+                <button type="submit" class="btn-primary">CONTINUAR</button>
+            </form>
+        </div>
+        <div class="footer">Desenvolvido por Milena Leal • Versão 1.0</div>
+    </div>
+</body>
+</html>

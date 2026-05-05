@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>App - Cadastro</title>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Cadastro<span>.</span></h1>
+            <div class="progress-container">
+                <div class="progress-bar" style="width: 33%;"></div>
+            </div>
+            
+            <form method="POST">
+                <label>E-mail de cadastro</label>
+                <input type="email" name="email" placeholder="exemplo@email.com" required>
+                
+                <label>Crie uma senha</label>
+                <input type="password" name="senha" placeholder="•••••" required>
+                
+                <label>Sua idade</label>
+                <input type="number" name="idade" min="14" max="100" placeholder="25" required>
+                
+                <button type="submit" class="btn-primary">CONTINUAR</button>
+            </form>
+        </div>
+        <div class="footer">Desenvolvido por Milena Leal • Versão 1.0</div>
+    </div>
+</body>
+</html>

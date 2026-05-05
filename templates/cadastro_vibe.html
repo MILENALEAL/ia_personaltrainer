@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>App - Personalidade</title>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Estilo<span>.</span></h1>
+            <div class="progress-container">
+                <div class="progress-bar" style="width: 100%;"></div>
+            </div>
+            
+            <form method="POST">
+                <label>Onde prefere treinar?</label>
+                <div class="radio-group">
+                    <input type="radio" id="academia" name="ambiente" value="Academia" checked>
+                    <label for="academia" class="radio-label">Academia</label>
+                    
+                    <input type="radio" id="casa" name="ambiente" value="Em casa">
+                    <label for="casa" class="radio-label">Em casa</label>
+                </div>
+                
+                <label>Estilo de cobrança do treinador</label>
+                <select name="estilo" class="custom-select">
+                    <option value="Gentil">Gentil (Apoiador)</option>
+                    <option value="Moderado">Moderado (Equilibrado)</option>
+                    <option value="Casca Grossa">Casca Grossa (Sargento)</option>
+                </select>
+                
+                <button type="submit" class="btn-primary">CONCLUIR CADASTRO</button>
+            </form>
+        </div>
+        <div class="footer">Desenvolvido por Milena Leal • Versão 1.0</div>
+    </div>
+</body>
+</html>
