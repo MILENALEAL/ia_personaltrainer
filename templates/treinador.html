@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Coach IA - Treino</title>
+</head>
+<body>
+    <div class="container" style="max-width: 600px;">
+        <div class="card">
+            <h1>Coach<span>.</span>IA</h1>
+            <p>Gerador de Treinos Inteligente</p>
+            
+            <div class="mensagens" id="chat-box">
+                <div class="msg-ia">E aí! Pronto para o treino de hoje? Me diga o que quer treinar e onde (casa ou academia).</div>
+            </div>
+            
+            <div id="area-salvar" style="display:none; margin-bottom: 15px;">
+                <button onclick="salvarTreino()" class="btn-primary" style="background: #22C55E;">SAlVAR ESTE TREINO ✅</button>
+            </div>
+
+            <div style="display: flex; gap: 10px;">
+                <input type="text" id="pergunta" placeholder="Ex: Treino de pernas na academia...">
+                <button onclick="gerarTreino()" class="btn-primary" style="width: 100px;">IR</button>
+            </div>
+            
+            <div class="link-area">
+                <a href="{{ url_for('dashboard') }}">Voltar ao Painel</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let ultimoTreinoGerado = "";
+
+        async function gerarTreino() {
+            const input = document.getElementById('pergunta');
+            const pergunta = input.value;
+            if(!pergunta) return;
+
+            const chatBox = document.getElementById('chat-box');
+            chatBox.innerHTML += `<div class="msg-user">${pergunta}</div>`;
+            input.value = "";
+
+            const response = await fetch("/treinador/gerar", {
+                method: 'POST',
+                body: new URLSearchParams({'pergunta': pergunta})
+            });
+            const data = await response.json();
+            
+            ultimoTreinoGerado = data.resposta;
+            chatBox.innerHTML += `<div class="msg-ia">${data.resposta.replace(/\n/g, '<br>')}</div>`;
+            document.getElementById('area-salvar').style.display = "block";
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        async function salvarTreino() {
+            const response = await fetch("/treino/salvar", {
+                method: 'POST',
+                body: new URLSearchParams({'conteudo': ultimoTreinoGerado})
+            });
+            if(response.ok) {
+                alert("Treino salvo com sucesso!");
+                document.getElementById('area-salvar').style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

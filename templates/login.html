@@ -12,22 +12,35 @@
             <h1>App<span>.</span></h1>
             <p>Seu Personal Inteligente</p>
             
-            <form method="POST">
-                <label>Usuário</label>
-                <input type="email" name="usuario" placeholder="Seu e-mail" required>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                {% for category, message in messages %}
+                  <div style="color: #ff4d4d; margin-bottom: 15px; font-size: 14px; text-align: center;">
+                    {{ message }}
+                  </div>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
+            
+            <form method="POST" style="text-align: left;">
+                <label style="display: block; margin-bottom: 5px; color: #aaa; font-size: 14px;">Usuário</label>
+                <input type="email" name="email" placeholder="Seu e-mail" required>
                 
-                <label>Senha</label>
+                <label style="display: block; margin-bottom: 5px; color: #aaa; font-size: 14px; margin-top: 10px;">Senha</label>
                 <input type="password" name="senha" placeholder="•••••" required>
                 
-                <button type="submit" class="btn-primary">ENTRAR</button>
+                <button type="submit" class="btn-primary" style="margin-top: 15px;">ENTRAR</button>
             </form>
             
-            <div class="link-area">
-                <span>Não tem conta?</span>
+            <div class="link-area" style="margin-top: 20px;">
+                <span style="color: #888;">Não tem conta?</span>
                 <a href="{{ url_for('cadastro_bio') }}">Cadastre-se aqui</a>
             </div>
         </div>
-        <div class="footer">Desenvolvido por Milena Leal • Versão 1.0</div>
+        
+        <div style="text-align: center; font-size: 12px; color: rgba(255, 255, 255, 0.3); margin-top: 20px;">
+            Desenvolvido por Milena Leal • Versão 1.0
+        </div>
     </div>
 </body>
 </html>

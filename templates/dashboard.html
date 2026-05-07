@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Dashboard - App</title>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Painel<span>.</span></h1>
+            <p>O que vamos fazer hoje?</p>
+            
+            <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px; width: 100%;">
+                <a href="{{ url_for('treinador') }}" class="btn-primary" style="display: block; box-sizing: border-box; text-align: center; text-decoration: none;">Gerar Novo Treino</a>
+                
+                <a href="{{ url_for('historico') }}" class="btn-primary" style="display: block; box-sizing: border-box; text-align: center; text-decoration: none; background-color: #444;">Histórico de Treinos</a>
+                
+                <a href="{{ url_for('nutri') }}" class="btn-primary" style="display: block; box-sizing: border-box; text-align: center; text-decoration: none; background-color: #2A2A2A;">Falar com IA Nutri</a>
+
+                <a href="{{ url_for('historico_nutri') }}" class="btn-primary" style="display: block; box-sizing: border-box; text-align: center; text-decoration: none; background-color: #1A1A1A;">Histórico da Nutri</a>
+            </div>
+            
+            <div class="link-area" style="margin-top: 30px; text-align: center;">
+                <a href="{{ url_for('login') }}">Sair da conta</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

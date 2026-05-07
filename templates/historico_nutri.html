@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Histórico Nutri</title>
+    <style>
+        .card-item {
+            background: #2A2A2A;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            text-align: left;
+            border: 1px solid #444;
+        }
+        .item-data {
+            font-size: 12px;
+            color: #22C55E; /* Verde para nutrição */
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .item-conteudo {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="max-width: 600px;">
+        <div class="card">
+            <h1>Dicas da <span>Nutri</span></h1>
+            <p>Seu histórico de alimentação</p>
+
+            <div style="max-height: 400px; overflow-y: auto; margin-bottom: 20px; padding-right: 5px;">
+                {% if historico %}
+                    {% for item in historico %}
+                    <div class="card-item">
+                        <div class="item-data">Salvo em: {{ item.created_at[:10] }}</div>
+                        <div class="item-conteudo">
+                            {{ item.conteudo | replace('\n', '<br>') | safe }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <p style="color: #888;">Nenhuma dica salva ainda.</p>
+                {% endif %}
+            </div>
+
+            <div class="link-area">
+                <a href="{{ url_for('dashboard') }}">Voltar ao Painel</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
