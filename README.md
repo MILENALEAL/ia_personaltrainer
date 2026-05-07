@@ -2,7 +2,7 @@
 
 Um web app inteligente de acompanhamento fitness e nutricional. O sistema utiliza a API do Google Gemini para atuar como um Personal Trainer e Nutricionista, gerando treinos e conselhos alimentares 100% personalizados com base na biometria, objetivo e ambiente de treino do usuário.
 
-## - Funcionalidades
+## Funcionalidades
 
 * **Autenticação:** Sistema de login e cadastro integrado ao Supabase.
 * **Perfil do Aluno:** Coleta de dados físicos (peso, altura, idade), nível de experiência e estilo do treinador desejado.
@@ -11,14 +11,14 @@ Um web app inteligente de acompanhamento fitness e nutricional. O sistema utiliz
 * **Histórico:** Salvamento automático de treinos e dicas da Nutri no banco de dados para consulta futura.
 * **UI/UX:** Interface "Dark & Red" responsiva e minimalista.
 
-## - Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 * **Back-end:** Python, Flask
 * **Banco de Dados:** Supabase (PostgreSQL)
 * **Inteligência Artificial:** Google GenAI SDK (Gemini 2.5 Flash)
 * **Front-end:** HTML5, CSS3, JavaScript (Vanilla)
 
-## - Como rodar o projeto localmente
+## Como rodar o projeto localmente
 
 1. Clone este repositório:
    ```bash
